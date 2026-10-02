@@ -1,0 +1,72 @@
+/* Site Variables for CSS - use like so:  background-color: var(--bgcolor); */
+:root {
+    --bgcolor: #051827; /* Deep Navy */
+    --accent: #00Bfc8; /* Cyber Cyan, mostly for borders */
+    --gradient-top: #11446b; /* Gradient Top Color */
+    --gradient-bottom: #030d17; /* Gradient Bottom Color */
+    --white: #fff; /* White */
+    --text-color: #202020; /* Off-black, for Text on White Backgrounds */
+    --link-color: #005B8C; /* Deep Ridge Blue, use for links */
+    --accent-font: 'JetBrains Mono', monospace; /* Main Font */
+    --main-font: 'Inter', sans-serif; /* Accent Font */
+    --font-size: 1rem; /* Font Size Min 16px = 1rem */
+}
+
+/* Body Styles for "Log In" Page */
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: var(--bgcolor); /* PPSC Navy Blue */
+  background-image: linear-gradient(var(--gradient-top), var(--gradient-bottom)); /* This gives the background a cool gradient effect using colors - yes, it uses an image property, don't ask me, I don't know*/
+  font-family: var(--accent-font); /* JetBrains Mono */
+  font-size: var(--font-size); /* 16px = 1rem */
+}
+
+/* Cyber Logo Styles */
+.cyber-logo {
+  display: flex; /* This is how we get a flexbox container */
+  justify-content: center; /* Used with display: flex; - this will center items horizontally on the screen */
+  margin-top: 3.125rem; /* Puts this section 50 pixels from the top of the page so we can move the logo down a bit */
+}
+
+/* Login Form */
+.the-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1.25rem; /* This makes our "form" sit 20px below the logo! */
+  width: 100%;
+}
+
+.login {
+  text-align: left;
+  color: var(--white);
+  font-size: var(--font-size);
+}
+
+.login input {
+  width: 12.5rem;
+  height: 1.875rem;
+  border-radius: 0.313rem;
+  border: 0.125rem solid var(--accent);
+  font-family: var(--accent-font);
+  margin-bottom: 0.313rem;
+  padding-left: 0.313rem;
+}
+
+.enter {
+  margin-top: 2.5rem;
+  margin-left: 1.25rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.125rem solid var(--accent);
+  border-radius: 50%;
+  background-color: var(--bgcolor);
+  color: var(--white);
+  font-family: var(--accent-font);
+  font-size: 1.5rem;
+  cursor: pointer;
+}

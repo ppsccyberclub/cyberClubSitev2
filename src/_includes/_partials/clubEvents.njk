@@ -1,0 +1,11 @@
+  <section class="widget">
+  <h3 class="widget-title">Upcoming Events</h3>
+<ul class="officer-list">
+    {% for event in clubEvents %}
+    <li><strong>{{ event.event }}</strong><br>
+    <strong>Date:</strong>{{ event.date }}<br>
+    <strong>Location:</strong> {{ event.location }}<br>
+    <strong>Notes:</strong> <em>{{ event.notes }}</em></li>
+    {% endfor %}
+</ul>
+  </section>

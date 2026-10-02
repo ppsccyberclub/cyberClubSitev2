@@ -1,0 +1,757 @@
+/* CSS Variables */ 
+:root {
+    --bg-color: #051827; /* PPSC Navy Blue */
+    --bg-blue: #13d1e4; /* Cyber Club Ice Blue */
+    --bg-aqua: #00Bfc8; /* Cyber Club Aqua */
+    --gradient-top: #11446b; /* Gradient Top Color */
+    --gradient-bottom: #030d17; /* Gradient Bottom Color */
+    --text-color: #fff; /* White */
+    --accent: #005B8C; /* Cyber Club Blue */
+    --term-aqua: #14becb; /* Cyber Clube Logo Medium Aqua */
+    --dot-red: #ff5f56; /* Red Dot in Window */
+    --dot-yellow: #ffbd2e; /* Yellow Dot in Window */
+    --dot-green: #27c93f; /* Green Dot in Window */
+    --scroll-color: #002855; /* PPSC Navy Blue */
+    --black: #000; /* Black */
+    --prism-text: #f8f8f; /* Off White */
+    --prism-bg: #002855; /* PPSC Navy Blue */
+    --prism-comment: #6272a4; /* Smokey Blue */
+    --prism-deleted: #ff79c6; /* Hot Pink */
+    --prism-boolean: #bd93f9; /* Lavender */
+    --prism-builtin: #50fa7b; /* Limewire */
+    --prism-attr: #f1fa8c; /* Banana */
+    --prism-keyword: #8be9fd; /* Sky */
+    --terminal-border: #555; /* Off Black */
+    --terminal-color: #888; /* Dark Gray */
+    --neofetch-black: #282a36; /* Another version of Off Black */
+    --neofecth-blue: #038dcf; /* Cyber Club Blue */
+    --file-meta: #0d4d97; /* Lighter PPSC Navy Blue */
+    --btn-terminal: #0dc7bc; /* Cyber Club Aqua */
+    --font-mono: 'JetBrains Mono','Fira Code', monospace;
+}
+
+/* HTML & Body Styles */
+html, body {
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    background-image:  url('/assets/images/cyberlogo800.png'), linear-gradient(var(--gradient-top), var(--gradient-bottom));
+    background-repeat: no-repeat, no-repeat;
+    background-position: center center, center center;
+    background-size: 800px auto, cover;
+    background-attachment: fixed, fixed;
+    box-shadow: inset 0 0 62.5rem rgba(0,0,0,0.3);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    padding: 1.25rem;
+    line-height: 1.6;
+    display: block;
+}
+
+::selection {
+    background: var(--btn-terminal);
+    color: var(--black);
+}
+
+/* Link Styles */
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+a:hover {
+    color: var(--term-aqua);
+    background-color: rgba(7.8,74.5,79.6,0.2);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--accent);
+}
+
+/* Desktop Icons */
+
+.desktop-sidebar {
+    contain: layout size;
+    position: fixed;
+    left: 20px;
+    top: 0;
+    width: 80px;
+    height: 100vh;
+    z-index: 999;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 25px; 
+    text-align: center;
+}
+
+.icon-group i {
+    font-size: 1.75rem;
+    color: rgba(255, 255, 255, 0.8); /* Dim white by default */
+    margin-bottom: 0.313rem;
+    transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.icon-group:hover i {
+    color: var(--btn-terminal); /* Glows green on hover */
+    text-shadow: 0 0 0.625rem rgba(0, 255, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.icon-group span {
+    font-family: var(--font-mono);
+    font-size: 0.625em;
+    text-transform: uppercase;
+    letter-spacing: 0.063;
+}
+
+/* Special styling for Terminal Body Links */
+.terminal-body a::before {
+    content: ">";
+    opacity: 0.5;
+    font-size: 0.8rem;
+}
+
+/* Terminal Styles */
+.terminal-container {
+    display: flex;
+    height: 80vh;
+    width: 95%;
+    max-width: 62.5rem;
+    margin: 5vh auto;
+    flex-direction: column;
+    flex-grow: 1;
+    border: 0.063rem solid var(--terminal-color);
+    border-radius: 0.938rem;
+    box-shadow: 0 0 1.25rem rgba(10.9,92.1,98.3,0.2);
+    overflow: auto;
+    background-color: rgba(0,15.7,33.3,0.9);
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.terminal-container.closed {
+    display: none;
+}
+
+.terminal-container:target {
+    display: flex;
+}
+
+.terminal-bar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.938rem;
+    background: var(--scroll-color);
+    padding: 0.313rem 0.938rem;
+    font-size: 0.8rem;
+    height: 1.875rem;
+}
+
+.terminal-path {
+    margin-left: auto;
+    color: var(--text-color);
+}
+
+.dot {
+    height: 0.625rem;
+    width: 0.624rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.313rem;
+}
+
+.red {
+    background-color: var(--dot-red);
+}
+
+.yellow {
+    background-color: var(--dot-yellow);
+}
+
+.green {
+    background-color: var(--dot-green);
+}
+
+.terminal-nav ul {
+    list-style: none;
+    padding: 0.938rem;
+    margin: 0;
+}
+
+.terminal-nav li {
+    display: inline;
+    margin-right: 1.25rem;
+}
+
+.terminal-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terminal-nav a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.terminal-body {
+    flex-grow: 1;
+    padding: 1.25rem;
+    min-height: 25rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-color) transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    color: var(--term-dim);
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+    border-radius: 0.625rem;
+}
+
+/* Make links look like clickable tokens */
+.terminal-body a {
+    color: var(--term-aqua);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0 0.25rem;
+}
+
+.terminal-body a::before {
+    content: "[";
+    opacity: 0.5;
+}
+
+.terminal-body a::after {
+    content: "]";
+    opacity: 0.5;
+}
+
+/* Interaction State */
+.terminal-body a:hover {
+    background-color: rgba(255,184,108,0.2);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav-link span.cmd {
+    opacity: 0.6;
+    margin-right: 0.313rem;
+}
+
+/* Make that Cursor blink */
+.cursor {
+    display: inline-block;
+    background: var(--text-color);
+    width: 0.625rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1;}
+    50% { opacity: 0; }
+}
+
+.myName {
+    color: var(--term-aqua);
+}
+
+
+/* The Table show in terminal on Projects/Lab Notes Pages */
+.terminal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.25rem;
+}
+
+.terminal-table th {
+    text-align: left;
+    border-bottom: 0.063rem solid var(--accent);
+    color: var(--accent);
+}
+
+.terminal-table td {
+    padding: 0.5rem 0;
+}
+
+.status {
+    color: var(--term-aqua);
+    font-size: 0.8rem;
+}
+
+/* Lab Notes */
+.lab-note {
+    max-width: 80ch;
+    margin: 0 auto;
+}
+
+.note-header {
+    margin-bottom: 2rem;
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.stat-line {
+    margin-bottom: 0.25rem;
+}
+
+.header-divider {
+    border: 0;
+    border-top: 0.063rem dashed var(--accent d);
+    margin-top: 0.938rem;
+}
+
+/* Obsidian .md file styles */
+.note-content h1, 
+.note-content h2 {
+    color: var(--text-color);
+    border-bottom: 0.063rem solid var(--scroll-color);
+    padding-bottom: 0.313rem;
+    margin-top: 2rem;
+}
+
+.note-content code {
+    color: var(--prism-text);
+    background-color: var(--bg-blue);
+    padding: 0.125rem 0.313rem;
+    border-radius: 0.188rem;
+}
+
+.note-content pre {
+    background-color: var(--bg-aqua);
+    padding: 0.938rem;
+    border: 0.063rem solid var(--scroll-color);
+    overflow-x: auto;
+}
+
+.note-footer {
+    margin-top: 3rem;
+    border-top: 0.063rem solid var(--scroll-color);
+    padding-top: 1rem;
+}
+
+.end-of-file {
+    background: var(--text-color);
+    color: var(--bg-color);
+    display: inline-block;
+    padding: 0 0.938rem;
+    font-weight: bold;
+}
+
+/* Terminal PrismJS Theme */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: var(--prism-text) !important;
+    font-family: var(--font-mono);
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    tab-size: 4;
+    hyphens: none;
+    background: var(--prism-bg);
+}
+
+pre[class*="language-"] {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    overflow: auto;
+    border: 0.063rem solid var(--scroll-color);
+    border-left: 0.25rem solid var(--text-color);
+    box-shadow: inset 0 0 0.625rem rgba(0,0,0,0.5);
+}
+
+:not(pre) > code[class*="language-"] {
+    padding: .2rem .4rem;
+    border-radius: .3rem;
+    background-color: var(--bg-blue);
+    color: var(--term-aqua);
+}
+
+/* Syntax Tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--prism-comment);
+    font-style: italic;
+}
+
+.token.punctuation {
+    color: var(--prism-text);
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: var(--prism-deleted);
+}
+
+.token.boolean,
+.token.number {
+    color: var(--prism-boolean);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: var(--prism-builtin);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color: var(--prism-text);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+    color: var(--prism-attr);
+}
+
+.token.keyword {
+    color: var(--prism-keyword);
+    font-weight: bold;
+}
+
+.token.regex,
+.token.important {
+    color: var(--term-amber);
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+/* Line highlight, if used */
+.line-highlight {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 0.125rem solid var(--prism-builtin);
+}
+
+.copy-button {
+    position: absolute;
+    top: 0.313rem;
+    right: 0.313rem;
+    background-color: rgba(0,0,0,0.7);
+    color: var(--text-color);
+    border: 0.063rem solid var(--text-color);
+    padding: 0.125rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.copy-button:hover {
+    opacity: 1;
+    background: var(--text-color);
+    color: var(--black);
+}
+
+.copy-button.copied {
+    border-color: var(--prism-builtin);
+    color: var(--prism-builtin);
+}
+
+/* Neofetch Page */
+.neofetch-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.875rem;
+    font-family: var(--font-mono);
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.neofetch-container a::before,
+.neofetch-container a::after {
+    content: "";
+}
+
+.neofetch-container .fetch-data a::before,
+.neofetch-container .fetch-data a::after {
+    content: none;
+    display: none;
+}
+
+.neofetch-container .fetch-data a {
+    color: var(--text-color);
+    background: transparent;
+}
+
+.ascii-logo {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    color: var(--term-aqua);
+    line-height: 1.1;
+}
+
+.fetch-data {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: var(--text-aqua);
+}
+
+.fetch-data div {
+    line-height: 1.2;
+    margin-bottom: 0.125rem;
+    display: block;
+}
+
+.fetch-data .key {
+    color: var(--term-aqua);
+    font-weight: bold;
+}
+
+.fetch-data div,
+.fetch-data p {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding: 0.125rem 0;
+}
+
+.key {
+    color: var(--term-aqua);
+    font-weight: bold;
+}
+
+.val {
+    color: rgba(255,255,255,0.7);
+}
+
+.user-host {
+    color: var(--text-color);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.313rem;
+}
+
+.palette-container {
+    display: inline-flex;
+    gap: 0.25rem;
+    vertical-align: middle;
+}
+
+.block {
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 0.125rem;
+}
+
+.c-black {
+    background-color: var(--neofetch-black);
+}
+
+.c-red {
+    background-color: var(--neofetch-red);
+}
+
+.c-green {
+    background-color: var(--prism-builtin);
+}
+
+.c-amber {
+    background-color: var(--term-amber);
+}
+
+.c-blue {
+    background-color: var(--prism-boolean);
+}
+
+.c-magenta {
+    background-color: var(--prism-deleted);
+}
+
+.c-cyan {
+    background-color: var(--prism-keyword);
+}
+
+.c-white {
+    background-color: var(--prism-attr);
+}
+
+.status-ok {
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.cred-row {
+    display: flex;
+    gap: 0.938rem;
+    font-family: var(--font-mono);
+    margin-bottom: 0.313rem;
+}
+
+.bracket {
+    color: var(--term-aqua);
+}
+
+.skills-section {
+    margin-top: 1.25rem;
+    line-height: 1.6;
+}
+
+.skill-row {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.skill-row .val {
+    color: var(--text-color);
+}
+
+.skill-row .val::before,
+.skill-row .val::after {
+    display: none;
+}
+
+.skill-row span.val {
+    letter-spacing: 0.063rem;
+}
+
+.project-list {
+    margin-top: 1.25rem;
+    font-family: var(--font-mono);
+}
+
+.project-item {
+    display: flex;
+    gap: 0.938rem;
+    margin-bottom: 0.625rem;
+    align-items: baseline;
+}
+
+.file-meta {
+    color: var(--file-meta);
+    font-size: 0.9rem;
+}
+
+.file-name a {
+    font-weight: bold;
+}
+
+.file-desc {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.btn-terminal {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--btn-terminal);
+    border: 0.063rem solid var(--btn-terminal);
+    padding: 0.25rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 0.313rem rgba(0,255,0,0.2);
+}
+
+.btn-terminal:hover {
+    background-color: var(--btn-terminal);
+    color: var(--black);
+    box-shadow: 0 0 0.938rem rgba(0,255,0,0.5);
+}
+
+.btn-terminal:active {
+    transform: translateY(0.063rem);
+    box-shadow: 0 0 0.125rem rgba(0,255,0,0.8);
+}
+
+.btn-terminal::before {
+    content: "[ ";
+}
+
+.btn-terminal::after {
+    content: "] ";
+}
+
+/* Club Info */
+.stats {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 2%;
+}
+
+.stats ul {
+    list-style-type: none;
+}
+
+.clubEvents {
+    width: 50%;
+}
+
+.clubEvents li {
+    margin-bottom: 0.625rem;
+}
+
+.clubOfficers {
+    width: 50%;
+}

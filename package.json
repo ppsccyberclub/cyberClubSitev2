@@ -1,0 +1,25 @@
+{
+  "name": "cyberclub",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @awesome.me/buildawesome",
+    "start": "npx @awesome.me/buildawesome --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@awesome.me/buildawesome": "^4.0.0-alpha.10",
+    "luxon": "^3.7.2",
+    "markdown-it": "^15.0.2",
+    "markdown-it-obsidian": "^1.1.0",
+    "node-ical": "^0.27.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-navigation": "^1.0.5"
+  }
+}

@@ -1,0 +1,63 @@
+---
+layout: login.njk
+title: PPSC Cyber Club - Portal Access
+---
+<section class="cyber-logo">
+  <img src="/assets/images/cyberlogo2.png" alt="Pikes Peak State College Cyber Club">
+</section>
+<section class="the-form">
+<section class="fake-form" aria-hidden="true">
+<form class="login">
+<label for="user" class="user">Username:</label><br>
+<input type="text" aria-label="username" name="username" value="Member" disabled><br>
+<label for="pass" class="pass">Password:</label><br>
+<input type="text" aria-label="password" name="password" value="*****************" disabled><br>
+</form>
+</section>
+<section class="enter-site">
+<div aria-label="Enter the Site" tabindex="0" role="button" id="enterBtn" class="enter"><i class="fa-solid fa-arrow-right"></i></div>
+<script>
+const btn = document.getElementById('enterBtn');
+const clickSfx = new Audio('/assets/sounds/mouseclick.mp3');
+clickSfx.preload = 'auto';
+
+let isNavigating = false;
+
+function triggerEnter() {
+  if (isNavigating) return;
+  isNavigating = true;
+
+  const destination = '/desktop.html';
+
+  clickSfx.currentTime = 0;
+
+  // Navigate when the sound finishes
+  clickSfx.onended = () => {
+    window.location.assign(destination);
+  };
+
+  // Play audio
+  clickSfx.play().catch(() => {
+    // If audio fails or is blocked, navigate anyway
+    window.location.assign(destination);
+  });
+
+  // Safety net in case onended doesn't fire
+  setTimeout(() => {
+    window.location.assign(destination);
+  }, 350);
+}
+
+// Mouse click
+btn.addEventListener('click', triggerEnter);
+
+// Keyboard support (Enter and Space)
+btn.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault(); // Stop spacebar from scrolling the page
+    triggerEnter();
+  }
+});
+  </script>
+  </section>
+</section>

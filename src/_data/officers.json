@@ -1,0 +1,7 @@
+[
+    { "role": "President", "name": "Mickey Mouse" },
+    { "role": "Vice President", "name": "Minnie Mouse" },
+    { "role": "Secretary", "name": "Pluto" },
+    { "role": "Treasurer", "name": "Donald Duck" },
+    { "role": "Community Outreach", "name": "Daisy Duck" }
+]

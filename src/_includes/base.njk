@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>PPSC Cyber Club</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">   
+        <link href="/assets/css/style.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7ee24494c8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <div class="desktop-sidebar">
+    <div class="icon-group">
+        <a href="#terminal" title="Terminal" aria-label="Terminal"><i class="fa-solid fa-terminal"></i></a>
+        <span>Terminal</span>
+    </div>
+    <div class="icon-group">
+        <a href="#" title="Home" aria-label="Home"><i class="fa-solid fa-folder-open"></i></a><br>
+        <span>Home</span>
+    </div>
+    <div class="icon-group">
+        <i class="fa-solid fa-shield-halved"></i><br>
+        <span>Tools</span>
+    </div>
+        <div class="icon-group">
+        <a href="walkthroughs.html" class="icon-group" title="CTF Walkthroughs" aria-label="CTF Walkthroughs"><i class="fa-regular fa-file"></i></a><br>
+        <span>CTF Walkthroughs</span>
+    </div>
+</div>
+      <div class="crt-overlay"></div>
+        <div id="terminal" class="terminal-container">
+  <header class="terminal-bar">
+  <div class="controls">
+    <a href="#" aria-label="Close the terminal window"><span class="dot red"></span></a>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+  </div>
+  <div class="terminal-path">
+  member@ppsccyber.club:~
+  {# Defensive check to prevent 'Node does not exist' fatal crashes #}
+{% if eleventyNavigation and eleventyNavigation.key %}
+  {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) if collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) else [] %}
+  {% for entry in navPages %}
+    <a href="{{ entry.url }}">{{ entry.title }}</a> /
+  {% endfor %}
+{% endif %}
+</div>
+</header>
+  <nav class="terminal-nav">
+    <ul>
+      <li><a href="/desktop.html" aria-label="Go back to blank Desktop">[ <span class="cmd">cd</span> /home ]</a></li>
+      <li><a href="/about.html" aria-label="Go to About page">[ whomai ]</a></li>
+      <li><a href="/clubEvents.html" aria-label="Go to the Calendar page">[ cd /events ]</a></li>
+      <li><a href="/neofetch.html" aria-label="Go to the neofetch page">[ neofetch ]</a></li>
+      <li><a href="/projects/" aria-label="Go to the club projects page">[ <span class="cmd">cd</span> /projects ]</a></li>
+      <li><a href="/walkthroughs/" aria-label="Go to our CTF Walkthroughs">[ <span class="cmd">cd</span> /ctf ]</a></li>
+    </ul>
+  </nav>
+
+  <main class="terminal-body">
+    {{ content | safe }}
+    <span class="cursor">█</span>
+  </main>
+</div>
+<script src="/assets/js/stayHere.js"></script>
+<script src="/assests/js/copyClipboard.js"></script>
+<script src="/assets/js/safeMode.js"></script>
+</body>
+</html>
